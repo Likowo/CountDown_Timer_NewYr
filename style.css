@@ -16,5 +16,18 @@ body {background-image: url('https://images.unsplash.com/photo-1516015222231-943
     justify-content: flex-start;
 }
 
+h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-top: 2rem;
+    color: rgb(128, 8, 68);
+}
 
+.countDownContainer {
+    border: solid 2px red;
+    height: fit-content; 
+    width: 50vw; 
+    display: flex;
+    justify-content: space-around;
+}
  
