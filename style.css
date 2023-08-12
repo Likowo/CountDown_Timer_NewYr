@@ -30,4 +30,24 @@ h1 {
     display: flex;
     justify-content: space-around;
 }
+
+.bigText {
+    border:  solid 1px yellow;
+    width: 10vw;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    margin: 0 0.5rem;
+    color: rgb(124, 49, 49);
+}
+
+.calendar {
+    border: solid 2px orange;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: rgb(243, 69, 69);
+}
  
