@@ -1,5 +1,6 @@
-//select elements from DOM. Then write logic within function to display calulated values on page using .innerHTML.
+//select elements from DOM. Then write logic within countdown function to display calulated values on page using Element.innerHTML.
 
+const numOfMonths = document.querySelector('#months');
 const numOfDays = document.querySelector('#days');
 const numOfHours = document.querySelector('#hours');
 const numOfMinutes = document.querySelector('#minutes');
@@ -11,7 +12,12 @@ const countdown = () => {
     const currentDate = new Date();
 
     const totalSeconds = (newYearDate - currentDate) / 1000; // The difference between the dates is in milliseconds, so divide by 1000 to get seconds. (1000 milliseconds equals 1 second)
-        // console.log(totalSeconds) give 12207679.518 seconds until 1 Jan 2024
+        // console.log(totalSeconds) gives 12207679.518 seconds until 1 Jan 2024
+
+    const months = Math.floor(totalSeconds / 3600 / 12 / 24 ) % 7; 
+    
+    //i.e total seconds till new year divided by 3600 seconds in an hour (i.e.60 seconds * 60 minutes), then divide by 12 months in a year; then divide by 24 hours in a day; use modulo function to get the remainder after dividing by 7 days in a week, that gives the number of months.
+    // console.log(months)
 
     const days = Math.floor(totalSeconds / 3600 /24);  //i.e total seconds till new year divided by 3600 seconds in an hour (i.e.60 seconds * 60 minutes), then divided by 24 hours in a day, to get the days from the seconds
 
@@ -27,6 +33,7 @@ const countdown = () => {
     // console.log(days,hours,minutes,seconds)
 
     // Set the current information of the different elements (days.hours,minutes and seconds) to the calculated values.
+numOfMonths.innerHTML = months;
 numOfDays.innerHTML = days;
 numOfHours.innerHTML = hours;
 numOfMinutes.innerHTML = minutes;
@@ -34,8 +41,8 @@ numOfSeconds.innerHTML = seconds;
 
 }
 
-// Set time to display 0 infront of single digits when less than 10 seconds. Used  conditional (ternary) operator.
-const formatTime = () => {
+// Set time to display 0 infront of single digits when seconds less than 10 seconds. Used  conditional (ternary) operator.
+const formatTime = (time) => {
     return time < 10 ? `0${time}` : time;
 }
 
