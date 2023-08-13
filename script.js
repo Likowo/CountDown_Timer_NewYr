@@ -1,3 +1,10 @@
+//select elements from DOM. Then write logic within function to display calulated values on page using .innerHTML.
+
+const numOfDays = document.querySelector('#days');
+const numOfHours = document.querySelector('#hours');
+const numOfMinutes = document.querySelector('#minutes');
+const numOfSeconds = document.querySelector('#seconds');
+
 const newYear = " 1 Jan 2024";
 const countdown = () => {
     const newYearDate = new Date(newYear);
@@ -19,6 +26,17 @@ const countdown = () => {
 
     // console.log(days,hours,minutes,seconds)
 
+    // Set the current information of the different elements (days.hours,minutes and seconds) to the calculated values.
+numOfDays.innerHTML = days;
+numOfHours.innerHTML = hours;
+numOfMinutes.innerHTML = minutes;
+numOfSeconds.innerHTML = seconds;
+
+}
+
+// Set time to display 0 infront of single digits when less than 10 seconds. Used  conditional (ternary) operator.
+const formatTime = () => {
+    return time < 10 ? `0${time}` : time;
 }
 
 countdown()
