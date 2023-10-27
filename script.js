@@ -5,6 +5,7 @@ const numOfDays = document.querySelector('#days');
 const numOfHours = document.querySelector('#hours');
 const numOfMinutes = document.querySelector('#minutes');
 const numOfSeconds = document.querySelector('#seconds');
+let image = document.querySelector('.image');
 
 const newYear = " 1 Jan 2024";
 const countdown = () => {
@@ -14,7 +15,7 @@ const countdown = () => {
     const totalSeconds = (newYearDate - currentDate) / 1000; // The difference between the dates is in milliseconds, so divide by 1000 to get seconds. (1000 milliseconds equals 1 second)
         // console.log(totalSeconds) gives 12207679.518 seconds until 1 Jan 2024
 
-    const months = Math.floor(totalSeconds / 3600 / 12 / 24 ) % 7; 
+    // const months = Math.floor(totalSeconds / 3600 / 12 / 24 ) % 7; 
     
     //i.e total seconds till new year divided by 3600 seconds in an hour (i.e.60 seconds * 60 minutes), then divide by 12 months in a year; then divide by 24 hours in a day; use modulo function to get the remainder after dividing by 7 days in a week, that gives the number of months.
     // console.log(months)
@@ -32,18 +33,25 @@ const countdown = () => {
 
     // console.log(days,hours,minutes,seconds)
 
-    // Set the current information of the different elements (days.hours,minutes and seconds) to the calculated values.
-numOfMonths.innerHTML = months;
+    // Set the current information of the different elements (months,days,hours,minutes and seconds) to the calculated values.
+// numOfMonths.innerHTML = months;
 numOfDays.innerHTML = days;
 numOfHours.innerHTML = hours;
 numOfMinutes.innerHTML = minutes;
 numOfSeconds.innerHTML = seconds;
 
-}
+//Show hidden image saying happy new year when clock reads 1second in every new year : and hide it again when clock read seven days in to the new year -->
+// image.classList.remove(`hidden`)
+// image.addEventListener( numOfSeconds.innerHTML >=1 () => {
+//     image.classList.remove(`hidden`);
+// });
+
 
 // Set time to display 0 infront of single digits when seconds less than 10 seconds. Used  conditional (ternary) operator.
 const formatTime = (time) => {
     return time < 10 ? `0${time}` : time;
+}
+
 }
 
 countdown()
